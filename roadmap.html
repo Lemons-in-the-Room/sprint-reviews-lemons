@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint Roadmap — Lemons</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f7f6f3;
+    --bg3: #f0efe9;
+    --border: rgba(0,0,0,0.1);
+    --border2: rgba(0,0,0,0.18);
+    --text: #1a1a18;
+    --text2: #5c5c56;
+    --text3: #9c9a92;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg2: #242422;
+      --bg3: #2c2c2a;
+      --border: rgba(255,255,255,0.1);
+      --border2: rgba(255,255,255,0.18);
+      --text: #e8e6de;
+      --text2: #a8a69e;
+      --text3: #6c6a62;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  body { padding: 20px 16px 40px; max-width: 720px; margin: 0 auto; }
+
+  .site-nav {
+    display: flex; align-items: center; gap: 4px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-link {
+    font-size: 11px; color: var(--text3); text-decoration: none;
+    padding: 3px 8px; border-radius: 6px;
+    transition: background 0.1s, color 0.1s;
+  }
+  .nav-link:hover { background: var(--bg2); color: var(--text2); }
+  .nav-link.active { color: var(--text); font-weight: 500; }
+  .nav-sep { font-size: 11px; color: var(--border2); }
+
+  .page-header {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .page-title { font-size: 16px; font-weight: 500; color: var(--text); }
+  .page-sub { font-size: 11px; color: var(--text3); }
+
+  .metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-bottom: 20px;
+  }
+  .metric {
+    background: var(--bg2); border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+  .metric-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+  .metric-value { font-size: 20px; font-weight: 500; color: var(--text); }
+  .metric-sub { font-size: 12px; font-weight: 400; color: var(--text3); }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    margin-bottom: 20px; font-size: 11px; color: var(--text2);
+  }
+  .leg-item { display: flex; align-items: center; gap: 5px; }
+  .leg-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+  .timeline { }
+  .rm-row { display: flex; gap: 14px; align-items: stretch; margin-bottom: 6px; }
+  .rm-row:last-child { margin-bottom: 0; }
+  .rm-left {
+    display: flex; flex-direction: column; align-items: center;
+    width: 14px; flex-shrink: 0; padding-top: 12px;
+  }
+  .rm-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .rm-line { flex: 1; width: 2px; margin: 4px 0; }
+  .rm-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    flex: 1; min-width: 0;
+  }
+  .rm-card.active { border-width: 1.5px; }
+  .rm-head {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .rm-title { font-size: 13px; font-weight: 500; color: var(--text); }
+  .rm-date { font-size: 11px; color: var(--text3); margin-left: 8px; }
+  .rm-active { font-size: 10px; font-weight: 500; margin-left: 8px; }
+  .rm-badges { display: flex; flex-wrap: wrap; gap: 4px; }
+  .rm-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 10px; font-weight: 500; padding: 2px 8px;
+    border-radius: 20px; text-decoration: none; white-space: nowrap; line-height: 1.4;
+  }
+  .rm-note {
+    font-size: 11px; color: var(--text3);
+    font-style: italic; margin: 0 0 6px;
+  }
+  .rm-features {
+    margin: 0; padding-left: 16px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .rm-features li { font-size: 12px; color: var(--text2); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-link">Sprint bubbles</a>
+  <span class="nav-sep">/</span>
+  <a href="roadmap.html" class="nav-link active">Roadmap</a>
+</nav>
+
+<div class="page-header">
+  <span class="page-title">Sprint roadmap</span>
+  <span class="page-sub">Lemo &amp; Lemo Junior · sprints → versions</span>
+</div>
+
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-label">Sprints done</div>
+    <div class="metric-value">9 <span class="metric-sub">/ 10</span></div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Release changelogs</div>
+    <div class="metric-value">4 <span class="metric-sub">documented</span></div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Active sprint</div>
+    <div class="metric-value" id="current-label" style="font-size:16px">Sprint 10</div>
+  </div>
+</div>
+
+<div class="legend" id="legend"></div>
+<div class="timeline" id="timeline"></div>
+
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const C = {
+  pre:    isDark?{dot:'#B4B2A9',bg:'#2C2C2A',txt:'#D3D1C7',line:'#444441'}:{dot:'#888780',bg:'#F1EFE8',txt:'#5F5E5A',line:'#D3D1C7'},
+  v01:    isDark?{dot:'#5DCAA5',bg:'#085041',txt:'#9FE1CB',line:'#0F6E56'}:{dot:'#1D9E75',bg:'#E1F5EE',txt:'#0F6E56',line:'#9FE1CB'},
+  review: isDark?{dot:'#EF9F27',bg:'#412402',txt:'#FAC775',line:'#633806'}:{dot:'#BA7517',bg:'#FAEEDA',txt:'#854F0B',line:'#FAC775'},
+  v02:    isDark?{dot:'#85B7EB',bg:'#042C53',txt:'#B5D4F4',line:'#0C447C'}:{dot:'#378ADD',bg:'#E6F1FB',txt:'#185FA5',line:'#B5D4F4'},
+  v03:    isDark?{dot:'#AFA9EC',bg:'#26215C',txt:'#CECBF6',line:'#3C3489'}:{dot:'#7F77DD',bg:'#EEEDFE',txt:'#534AB7',line:'#CECBF6'},
+  v04:    isDark?{dot:'#F0997B',bg:'#4A1B0C',txt:'#F5C4B3',line:'#712B13'}:{dot:'#D85A30',bg:'#FAECE7',txt:'#993C1D',line:'#F5C4B3'},
+  v05:    isDark?{dot:'#5DCAA5',bg:'#085041',txt:'#9FE1CB',line:'#0F6E56'}:{dot:'#0F6E56',bg:'#E1F5EE',txt:'#0F6E56',line:'#9FE1CB'},
+};
+
+document.getElementById('current-label').style.color = C.v05.dot;
+
+const legendItems = [
+  {type:'pre',label:'Foundation (pre-sprint)'},
+  {type:'v01',label:'v0.1.x'},
+  {type:'review',label:'Company review'},
+  {type:'v02',label:'v0.2.x'},
+  {type:'v03',label:'v0.3.x'},
+  {type:'v04',label:'v0.4.x'},
+  {type:'v05',label:'v0.5 (active)'},
+];
+const legend = document.getElementById('legend');
+legendItems.forEach(({type,label}) => {
+  const c = C[type];
+  const el = document.createElement('span');
+  el.className = 'leg-item';
+  el.innerHTML = `<span class="leg-dot" style="background:${c.dot}"></span>${label}`;
+  legend.appendChild(el);
+});
+
+const sprints = [
+  {type:'pre',label:'Foundation',date:'Before Feb 2026',
+   versions:[{v:'v0.0.3',url:null},{v:'v0.0.4',url:null},{v:'v0.0.7',url:null},{v:'v0.0.9',url:null}],
+   note:'Solo development — Cosmos, statue assemblies, breathing protocols, voice control, 180° videos',
+   features:['Cosmos & David/Laocoon assembly meditations','Physiological Sigh, Box, EMDR, Triangle breathing','Voice-controlled, ~10k loc architecture overhaul'],
+   current:false},
+  {type:'v01',label:'Sprint 1',date:'Feb 2–13, 2026',
+   versions:[{v:'v0.1.1',url:'https://app.notion.com/p/304e69fbb9e68016a7a0e2527256f787'}],
+   note:'FMOD audio engine, Lemona animated, portal shader rework — first multi-contributor sprint',
+   features:['FMOD audio engine replaces Unity audio (5,148 files changed)','Lemona animated character (22+ animations, eye tracking)','Emotional state pre/post session tracking'],
+   current:false},
+  {type:'v01',label:'Sprint 2',date:'Feb 16–27, 2026',
+   versions:[{v:'v0.1.2',url:null}],
+   note:'Breathing VFX Graph prototype, Bibliotheca 4K texturing, Lemo Junior iOS setup',
+   features:['Breathing VFX Graph prototype (4 patterns)','Bibliotheca 4K texturing + main menu blockout','Lemo Junior iOS dev tools setup'],
+   current:false},
+  {type:'v01',label:'Sprint 3',date:'Mar 2–13, 2026',
+   versions:[{v:'v0.1.3',url:null}],
+   note:'All 4 breathing patterns via VFX Graph, Lantern audio + ambience, Bibliotheca assets complete',
+   features:['4 breathing patterns validated via VFX Graph','Lantern audio SFX + ambience integrated','Bibliotheca props, texturing, skybox complete'],
+   current:false},
+  {type:'v01',label:'Sprint 4',date:'Mar 16–27, 2026',
+   versions:[{v:'v0.1.6',url:'https://app.notion.com/p/329e69fbb9e6817a9edfd38a7d78eed4'}],
+   note:'3 new scenes, English localization, 600+ sounds reworked — biggest release to date at the time',
+   features:['FMOD full rearchitecture + EN/IT voiceover banks','Lantern + Bibliotheca complete with bilingual audio','Lemo Junior: teleport, gestures, Lemona 3D model, SALSA lip sync'],
+   current:false},
+  {type:'review',label:'Sprint 5 — Q1 Review',date:'Mar 30–Apr 10, 2026',
+   versions:[],
+   note:'Company-wide Q1 review — no product release this sprint',
+   features:['Hospital pipeline updates (5 sites)','Business development: FungAI, Law 14 grant, investors','Video production & social media strategy'],
+   current:false},
+  {type:'v02',label:'Sprint 6',date:'Apr 13–24, 2026',
+   versions:[{v:'v0.2.6',url:'https://app.notion.com/p/348e69fbb9e6801fb7bffaece13d2c89'}],
+   note:'Main Menu, House Assembly, Lantern finalized, sound overhaul — ready for clinical hospital deployment',
+   features:['Lemo v0.2 polished for medical device submission','House Assembly, Solo Breathing & Lantern complete','Lemo Junior: character voices (ElevenLabs), portal emergence'],
+   current:false},
+  {type:'v03',label:'Sprint 7',date:'Apr 27–May 8, 2026',
+   versions:[{v:'v0.3',url:null}],
+   note:'World Map with cloth roll-down, SDF particle breathing stations, 3D Immersion + Video stations',
+   features:['World Map with cloth roll-down animation','SDF particle breathing station towers','3D Immersion Station + holographic props'],
+   current:false},
+  {type:'v03',label:'Sprint 8',date:'May 11–22, 2026',
+   versions:[{v:'v0.3+',url:null}],
+   note:'New tutorial system, 10 new 3D videos, Spanish localization, OpenXR migration begins',
+   features:['New tutorial system on World Map','Spanish localization + 10 new 3D videos','OpenXR / XR SDK 3.x migration start'],
+   current:false},
+  {type:'v04',label:'Sprint 9',date:'May 25–Jun 5, 2026',
+   versions:[{v:'v0.4.2',url:'https://app.notion.com/p/35fe69fbb9e680e59b3ceacb2e87d768'}],
+   note:'Full Oculus SDK → OpenXR migration, Spanish trilingual, Pico 4 support — biggest architectural leap to date',
+   features:['Oculus SDK → OpenXR complete (Meta Quest 2/3/Pro + Pico 4)','Spanish trilingual, Ring Puzzle, SDF breathing station','Lemo Junior: all station flows + full environment integrated'],
+   current:false},
+  {type:'v05',label:'Sprint 10',date:'Jun 8–19, 2026',
+   versions:[{v:'v0.5',url:null}],
+   note:'World Map finalization, new tutorial on world map, Bibliotheca sound design, Lemona eyelash rig fix',
+   features:['World Map texturing + roll animation + breadcrumb tracking','Tutorial system on World Map','Bibliotheca sound design completion'],
+   current:true},
+];
+
+const tl = document.getElementById('timeline');
+sprints.forEach((s, i) => {
+  const c = C[s.type];
+  const isLast = i === sprints.length - 1;
+
+  const badgesHtml = s.versions.length === 0
+    ? `<span class="rm-badge" style="background:${c.bg};color:${c.txt}">No release</span>`
+    : s.versions.map(v => v.url
+        ? `<a href="${v.url}" class="rm-badge" style="background:${c.bg};color:${c.txt}" target="_blank"><i class="ti ti-file-text" style="font-size:11px"></i>${v.v} <i class="ti ti-external-link" style="font-size:10px;opacity:.7"></i></a>`
+        : `<span class="rm-badge" style="background:${c.bg};color:${c.txt}">${v.v}</span>`
+      ).join(' ');
+
+  const featuresHtml = s.features.map(f =>
+    `<li>${f}</li>`
+  ).join('');
+
+  const activeTag = s.current
+    ? `<span class="rm-active" style="color:${c.dot}">● active</span>` : '';
+  const cardBorder = s.current ? `border-color:${c.dot}` : '';
+  const dotGlow = s.current ? `;box-shadow:0 0 0 3px ${c.bg}` : '';
+
+  const row = document.createElement('div');
+  row.className = 'rm-row';
+  row.innerHTML = `
+    <div class="rm-left">
+      <div class="rm-dot" style="background:${c.dot}${dotGlow}"></div>
+      ${!isLast ? `<div class="rm-line" style="background:${c.line}"></div>` : ''}
+    </div>
+    <div class="rm-card${s.current ? ' active' : ''}" style="${cardBorder}">
+      <div class="rm-head">
+        <div>
+          <span class="rm-title">${s.label}</span>
+          <span class="rm-date">${s.date}</span>
+          ${activeTag}
+        </div>
+        <div class="rm-badges">${badgesHtml}</div>
+      </div>
+      <p class="rm-note">${s.note}</p>
+      <ul class="rm-features">${featuresHtml}</ul>
+    </div>`;
+  tl.appendChild(row);
+});
+</script>
+</body>
+</html>
