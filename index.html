@@ -345,7 +345,14 @@ function buildAppSection(appKey, sprints) {
 
     const lbl = document.createElement('div');
     lbl.className = 'sprint-label';
-    lbl.textContent = sprint.label;
+    lbl.style.marginBottom = '2px';
+
+    const appData = sprint[appKey];
+    let mappedCount = 0;
+    DEPTS.forEach(d => { mappedCount += (appData[d.id] || []).length; });
+    const actualCount = appKey === 'lemo' ? (sprint.jira_done_lemo || 0) : (sprint.jira_done_lj || 0);
+
+    lbl.innerHTML = `<strong>${sprint.label}</strong><br><span style="font-size:8px;color:var(--text3);font-weight:600;white-space:nowrap;">${mappedCount} / ${actualCount || mappedCount} Done</span>`;
     col.appendChild(lbl);
 
     const stage = document.createElement('div');
@@ -358,7 +365,6 @@ function buildAppSection(appKey, sprints) {
     });
     svg.style.overflow = 'visible';
 
-    const appData = sprint[appKey];
     const counts = {};
     DEPTS.forEach(d => { counts[d.id] = (appData[d.id] || []).length; });
     const bubbles = layoutBubbles(counts);
