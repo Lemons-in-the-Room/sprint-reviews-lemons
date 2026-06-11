@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint Bubbles — BiteXR</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f7f6f3;
+    --bg3: #f0efe9;
+    --border: rgba(0,0,0,0.1);
+    --border2: rgba(0,0,0,0.18);
+    --text: #1a1a18;
+    --text2: #5c5c56;
+    --text3: #9c9a92;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg2: #242422;
+      --bg3: #2c2c2a;
+      --border: rgba(255,255,255,0.1);
+      --border2: rgba(255,255,255,0.18);
+      --text: #e8e6de;
+      --text2: #a8a69e;
+      --text3: #6c6a62;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  body { padding: 20px 16px 32px; max-width: 960px; margin: 0 auto; }
+
+  #loading {
+    display: flex; align-items: center; justify-content: center;
+    height: 200px; color: var(--text3); font-size: 13px;
+  }
+  #error {
+    display: none; padding: 16px; background: #fcebeb;
+    border: 0.5px solid #f09595; border-radius: var(--radius);
+    color: #791f1f; font-size: 12px;
+  }
+
+  .page-header {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .page-title { font-size: 16px; font-weight: 500; color: var(--text); }
+  .page-sub { font-size: 11px; color: var(--text3); }
+  .updated { font-size: 10px; color: var(--text3); margin-left: auto; }
+
+  .legend {
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    margin-bottom: 16px;
+  }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--text2); }
+  .leg-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .leg-note { font-size: 10px; color: var(--text3); margin-left: auto; }
+
+  .app-section { margin-bottom: 28px; }
+  .app-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .app-title { font-size: 14px; font-weight: 500; color: var(--text); }
+  .app-version {
+    font-size: 10px; font-weight: 600; padding: 2px 8px;
+    border-radius: 10px; margin-left: 4px;
+  }
+  .app-sub { font-size: 10px; color: var(--text3); }
+
+  .sprint-row { display: flex; align-items: stretch; gap: 0; }
+  .sprint-col {
+    display: flex; flex-direction: column; align-items: center;
+    flex: 1; min-width: 0;
+  }
+  .sprint-label {
+    font-size: 9px; color: var(--text3); margin-bottom: 5px;
+    text-align: center; line-height: 1.2;
+  }
+  .sprint-divider {
+    width: 0.5px; background: var(--border); align-self: stretch; margin: 0 2px;
+  }
+  .bubble-stage {
+    position: relative; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    height: 96px;
+  }
+  .bubble-stage svg { overflow: visible; }
+
+  .panel {
+    background: var(--bg2);
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    margin-top: 10px;
+    min-height: 72px;
+    transition: background 0.1s;
+  }
+  .panel-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .panel-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .panel-dept { font-size: 12px; font-weight: 500; color: var(--text); }
+  .panel-sprint { font-size: 10px; color: var(--text3); }
+  .panel-count {
+    font-size: 10px; font-weight: 600; padding: 1px 7px;
+    border-radius: 9px; margin-left: auto;
+  }
+
+  .task-list { display: flex; flex-direction: column; gap: 5px; }
+  .task-item { display: flex; align-items: baseline; gap: 7px; line-height: 1.4; }
+  .task-key {
+    font-size: 9px; font-weight: 600;
+    font-family: ui-monospace, "SF Mono", monospace;
+    color: var(--text3); flex-shrink: 0; min-width: 46px;
+  }
+  .task-who {
+    font-size: 9px; font-weight: 600; border-radius: 3px;
+    padding: 1px 5px; flex-shrink: 0; white-space: nowrap;
+  }
+  .task-title { font-size: 11px; color: var(--text2); }
+
+  .panel-empty { font-size: 11px; color: var(--text3); padding: 4px 0; }
+  .panel-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    height: 48px; font-size: 11px; color: var(--text3);
+  }
+
+  .section-divider { height: 0.5px; background: var(--border); margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<div id="loading">Loading sprint data...</div>
+<div id="error"></div>
+<div id="root" style="display:none"></div>
+
+<script>
+const DEPTS = [
+  { id:'dev',   label:'Dev',    color:'#378ADD', bg:'#dbeeff', text:'#0C447C' },
+  { id:'art',   label:'3D Art', color:'#BA7517', bg:'#fdf0d8', text:'#633806' },
+  { id:'sound', label:'Sound',  color:'#534AB7', bg:'#eeeafc', text:'#3C3489' },
+  { id:'vfx',   label:'VFX',    color:'#993556', bg:'#fce8f2', text:'#72243E' },
+];
+
+const WHO = {
+  Lazar:    { bg:'#dbeeff', color:'#0C447C' },
+  Chiara:   { bg:'#d8f5ef', color:'#085041' },
+  Elisa:    { bg:'#fdf0d8', color:'#633806' },
+  Federico: { bg:'#fce8f2', color:'#72243E' },
+  Elan:     { bg:'#eeeafc', color:'#3C3489' },
+  Manuel:   { bg:'#e4f5d8', color:'#27500A' },
+};
+
+const APP_META = {
+  lemo: {
+    title: 'Lemo',
+    sub: 'Adult oncology XR therapy',
+    color: '#378ADD',
+    bgLight: '#dbeeff',
+    textDark: '#0C447C',
+    versionKey: 'version_lemo',
+  },
+  lj: {
+    title: 'Lemo Junior',
+    sub: 'Gamified pediatric distraction therapy',
+    color: '#1D9E75',
+    bgLight: '#d8f5ef',
+    textDark: '#085041',
+    versionKey: 'version_lj',
+  },
+};
+
+const MIN_R = 10, MAX_R = 36, STAGE_H = 96;
+let globalMax = 1;
+
+function scaleR(v) {
+  if (v === 0) return 0;
+  return MIN_R + (v / globalMax) * (MAX_R - MIN_R);
+}
+
+function layoutBubbles(counts) {
+  const active = DEPTS
+    .filter(d => counts[d.id] > 0)
+    .map(d => ({ ...d, v: counts[d.id], r: scaleR(counts[d.id]) }));
+  if (!active.length) return [];
+  const cx = 50, cy = STAGE_H / 2;
+  if (active.length === 1) return [{ ...active[0], x: cx, y: cy }];
+  if (active.length === 2) {
+    const g = 5, tot = active[0].r + active[1].r + g;
+    return [
+      { ...active[0], x: cx - tot/2 + active[0].r, y: cy },
+      { ...active[1], x: cx + tot/2 - active[1].r, y: cy },
+    ];
+  }
+  if (active.length === 3) return [
+    { ...active[0], x: cx - active[0].r - 3, y: cy - active[0].r * 0.4 },
+    { ...active[1], x: cx + active[1].r + 3, y: cy - active[1].r * 0.4 },
+    { ...active[2], x: cx, y: cy + active[2].r * 0.7 },
+  ];
+  return [
+    { ...active[0], x: cx - active[0].r - 2, y: cy - active[0].r * 0.5 },
+    { ...active[1], x: cx + active[1].r + 2, y: cy - active[1].r * 0.5 },
+    { ...active[2], x: cx - active[2].r,     y: cy + active[2].r * 0.6 },
+    { ...active[3], x: cx + active[3].r,     y: cy + active[3].r * 0.6 },
+  ];
+}
+
+function svgEl(tag, attrs) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+function buildPanel(sprint, appKey, deptId, panelEl) {
+  const dept = DEPTS.find(d => d.id === deptId);
+  const tasks = sprint[appKey][deptId] || [];
+  panelEl.innerHTML = '';
+
+  const hdr = document.createElement('div');
+  hdr.className = 'panel-header';
+
+  const dot = document.createElement('span');
+  dot.className = 'panel-dot';
+  dot.style.background = dept.color;
+
+  const name = document.createElement('span');
+  name.className = 'panel-dept';
+  name.textContent = dept.label;
+
+  const sprintLabel = document.createElement('span');
+  sprintLabel.className = 'panel-sprint';
+  sprintLabel.textContent = `${sprint.label} · ${sprint.dates}`;
+
+  const count = document.createElement('span');
+  count.className = 'panel-count';
+  count.style.background = dept.bg;
+  count.style.color = dept.text;
+  count.textContent = `${tasks.length} task${tasks.length !== 1 ? 's' : ''}`;
+
+  hdr.appendChild(dot);
+  hdr.appendChild(name);
+  hdr.appendChild(sprintLabel);
+  hdr.appendChild(count);
+  panelEl.appendChild(hdr);
+
+  if (!tasks.length) {
+    const e = document.createElement('div');
+    e.className = 'panel-empty';
+    e.textContent = 'No tasks this sprint.';
+    panelEl.appendChild(e);
+    return;
+  }
+
+  const list = document.createElement('div');
+  list.className = 'task-list';
+  tasks.forEach(t => {
+    const row = document.createElement('div');
+    row.className = 'task-item';
+    const wc = WHO[t.who] || { bg: '#eee', color: '#555' };
+
+    const key = document.createElement('span');
+    key.className = 'task-key';
+    key.textContent = t.key || '';
+
+    const who = document.createElement('span');
+    who.className = 'task-who';
+    who.style.background = wc.bg;
+    who.style.color = wc.color;
+    who.textContent = t.who || '';
+
+    const title = document.createElement('span');
+    title.className = 'task-title';
+    title.textContent = t.title;
+
+    row.appendChild(key);
+    if (t.who) row.appendChild(who);
+    row.appendChild(title);
+    list.appendChild(row);
+  });
+  panelEl.appendChild(list);
+}
+
+function buildAppSection(appKey, sprints) {
+  const meta = APP_META[appKey];
+  const section = document.createElement('div');
+  section.className = 'app-section';
+
+  const hdr = document.createElement('div');
+  hdr.className = 'app-header';
+
+  const titleEl = document.createElement('span');
+  titleEl.className = 'app-title';
+  titleEl.textContent = meta.title;
+
+  const latestSprint = sprints[sprints.length - 1];
+  const versionEl = document.createElement('span');
+  versionEl.className = 'app-version';
+  versionEl.style.background = meta.bgLight;
+  versionEl.style.color = meta.textDark;
+  versionEl.textContent = latestSprint[meta.versionKey] || '';
+
+  const subEl = document.createElement('span');
+  subEl.className = 'app-sub';
+  subEl.textContent = meta.sub;
+
+  hdr.appendChild(titleEl);
+  hdr.appendChild(versionEl);
+  hdr.appendChild(subEl);
+  section.appendChild(hdr);
+
+  const row = document.createElement('div');
+  row.className = 'sprint-row';
+
+  const panel = document.createElement('div');
+  panel.className = 'panel';
+  const ph = document.createElement('div');
+  ph.className = 'panel-placeholder';
+  ph.textContent = 'Hover a bubble to see planned tasks';
+  panel.appendChild(ph);
+
+  sprints.forEach((sprint, i) => {
+    if (i > 0) {
+      const dv = document.createElement('div');
+      dv.className = 'sprint-divider';
+      row.appendChild(dv);
+    }
+
+    const col = document.createElement('div');
+    col.className = 'sprint-col';
+
+    const lbl = document.createElement('div');
+    lbl.className = 'sprint-label';
+    lbl.textContent = sprint.label;
+    col.appendChild(lbl);
+
+    const stage = document.createElement('div');
+    stage.className = 'bubble-stage';
+
+    const svg = svgEl('svg', {
+      viewBox: `0 0 100 ${STAGE_H}`,
+      width: '100%',
+      height: STAGE_H,
+    });
+    svg.style.overflow = 'visible';
+
+    const appData = sprint[appKey];
+    const counts = {};
+    DEPTS.forEach(d => { counts[d.id] = (appData[d.id] || []).length; });
+    const bubbles = layoutBubbles(counts);
+
+    bubbles.forEach(b => {
+      const g = svgEl('g', {});
+      g.style.cursor = 'pointer';
+
+      const c = svgEl('circle', {
+        cx: b.x, cy: b.y, r: b.r,
+        fill: b.bg, stroke: b.color, 'stroke-width': '1.5',
+      });
+      g.appendChild(c);
+
+      if (b.r >= 14) {
+        const t1 = svgEl('text', {
+          x: b.x, y: b.y - 3,
+          'text-anchor': 'middle', 'dominant-baseline': 'central',
+          'font-size': '7', 'font-weight': '600', fill: b.text,
+        });
+        t1.textContent = b.label;
+        g.appendChild(t1);
+
+        const t2 = svgEl('text', {
+          x: b.x, y: b.y + 6,
+          'text-anchor': 'middle', 'dominant-baseline': 'central',
+          'font-size': '9', 'font-weight': '700', fill: b.color,
+        });
+        t2.textContent = b.v;
+        g.appendChild(t2);
+      }
+
+      g.addEventListener('mouseenter', () => {
+        c.setAttribute('stroke-width', '3');
+        buildPanel(sprint, appKey, b.id, panel);
+      });
+      g.addEventListener('mouseleave', () => {
+        c.setAttribute('stroke-width', '1.5');
+      });
+
+      svg.appendChild(g);
+    });
+
+    if (!bubbles.length) {
+      const t = svgEl('text', {
+        x: '50', y: STAGE_H / 2,
+        'text-anchor': 'middle', 'dominant-baseline': 'central',
+        'font-size': '9', fill: '#aaa',
+      });
+      t.textContent = '—';
+      svg.appendChild(t);
+    }
+
+    stage.appendChild(svg);
+    col.appendChild(stage);
+    row.appendChild(col);
+  });
+
+  section.appendChild(row);
+  section.appendChild(panel);
+  return section;
+}
+
+function buildLegend() {
+  const legend = document.createElement('div');
+  legend.className = 'legend';
+  DEPTS.forEach(d => {
+    const item = document.createElement('div');
+    item.className = 'leg-item';
+    item.innerHTML = `<span class="leg-dot" style="background:${d.color}"></span>${d.label}`;
+    legend.appendChild(item);
+  });
+  const note = document.createElement('div');
+  note.className = 'leg-note';
+  note.textContent = 'bubble size = ticket count · hover to see tasks';
+  legend.appendChild(note);
+  return legend;
+}
+
+async function init() {
+  try {
+    const res = await fetch('data.json?v=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const sprints = data.sprints;
+
+    globalMax = Math.max(1, ...sprints.flatMap(s =>
+      ['lemo','lj'].flatMap(app =>
+        DEPTS.map(d => (s[app][d.id] || []).length)
+      )
+    ));
+
+    const root = document.getElementById('root');
+    root.innerHTML = '';
+
+    const pageHdr = document.createElement('div');
+    pageHdr.className = 'page-header';
+    const latestSprint = sprints[sprints.length - 1];
+    pageHdr.innerHTML = `
+      <span class="page-title">Sprint bubbles</span>
+      <span class="page-sub">BiteXR · ${sprints.length} sprints</span>
+      <span class="updated">Last sprint: ${latestSprint.label} · ${latestSprint.dates}</span>
+    `;
+    root.appendChild(pageHdr);
+    root.appendChild(buildLegend());
+    root.appendChild(buildAppSection('lemo', sprints));
+
+    const divider = document.createElement('div');
+    divider.className = 'section-divider';
+    root.appendChild(divider);
+
+    root.appendChild(buildAppSection('lj', sprints));
+
+    document.getElementById('loading').style.display = 'none';
+    root.style.display = 'block';
+
+  } catch (err) {
+    document.getElementById('loading').style.display = 'none';
+    const errEl = document.getElementById('error');
+    errEl.style.display = 'block';
+    errEl.textContent = 'Could not load data.json: ' + err.message;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

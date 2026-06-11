@@ -1,0 +1,431 @@
+{
+  "sprints": [
+    {
+      "id": 1,
+      "label": "Sprint 1",
+      "dates": "Feb 2–13",
+      "version_lemo": "Lemo v0.1.1",
+      "version_lj": "LJ base",
+      "lemo": {
+        "dev": [
+          { "key": null, "title": "Portal shader integration", "who": "Manuel" },
+          { "key": null, "title": "Statue rotation handling", "who": "Manuel" },
+          { "key": null, "title": "Breathing pattern VFX prototype", "who": "Manuel" },
+          { "key": null, "title": "FMOD + Audio Manager integration", "who": "Lazar" },
+          { "key": null, "title": "OpenXR device-agnostic XR setup", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": null, "title": "Bibliotheca environment work", "who": "Elisa" },
+          { "key": null, "title": "Main menu virtual env concept", "who": "Elisa" },
+          { "key": null, "title": "Breathing VFX visual ideation", "who": "Elisa" },
+          { "key": null, "title": "Portal shader references", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": null, "title": "FMOD integration setup", "who": "Lazar" },
+          { "key": null, "title": "Cloud Content Delivery research", "who": "Lazar" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": null, "title": "Portal system for Lemo Park", "who": "Manuel" },
+          { "key": null, "title": "Teleport system + UI transitions", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": null, "title": "Lemo Park base env concepts", "who": "Elisa" },
+          { "key": null, "title": "Stand concepts: Teddy, Firefly, Aliens, Giardino", "who": "Elisa" }
+        ],
+        "sound": [],
+        "vfx": []
+      }
+    },
+    {
+      "id": 2,
+      "label": "Sprint 2",
+      "dates": "Feb 16–27",
+      "version_lemo": "Lemo v0.1.2",
+      "version_lj": "LJ arch",
+      "lemo": {
+        "dev": [
+          { "key": null, "title": "VFX Graph breathing visualization", "who": "Manuel" },
+          { "key": null, "title": "All 4 breathing patterns tested", "who": "Manuel" },
+          { "key": null, "title": "Two choice panel rework concept", "who": "Manuel" },
+          { "key": null, "title": "Gesture recognition prototype", "who": "Manuel" }
+        ],
+        "art": [
+          { "key": null, "title": "Bibliotheca main module texturing (4K)", "who": "Elisa" },
+          { "key": null, "title": "Bibliotheca props scope + modeling", "who": "Elisa" },
+          { "key": null, "title": "Main menu blockout start", "who": "Elisa" },
+          { "key": null, "title": "Blob textures for breathing VFX", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": null, "title": "Lantern voices via ElevenLabs", "who": "Elan" },
+          { "key": null, "title": "Lantern SFX sourced + integrated", "who": "Elan" },
+          { "key": null, "title": "Lantern background ambience", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [],
+        "art": [],
+        "sound": [],
+        "vfx": []
+      }
+    },
+    {
+      "id": 3,
+      "label": "Sprint 3",
+      "dates": "Mar 2–13",
+      "version_lemo": "Lemo v0.1.3",
+      "version_lj": "LJ tools",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-207", "title": "Breathing patterns VFX Graph", "who": "Lazar" },
+          { "key": "LEM-254", "title": "EMDR breathing tested", "who": "Manuel" },
+          { "key": "LEM-255", "title": "Physiological sigh tested", "who": "Manuel" },
+          { "key": "LEM-256", "title": "Box breathing tested", "who": "Manuel" },
+          { "key": "LEM-185", "title": "AdaptiveGI lighting switching", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": "LEM-224", "title": "Bibliotheca props", "who": "Elisa" },
+          { "key": "LEM-217", "title": "Bibliotheca texturing", "who": "Elisa" },
+          { "key": "LEM-272", "title": "Skybox", "who": "Elisa" },
+          { "key": "LEM-258", "title": "Breathing textures", "who": "Elisa" },
+          { "key": "LEM-260", "title": "New ivy asset", "who": "Elisa" },
+          { "key": "LEM-246", "title": "Bibliotheca blockout", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": "LEM-252", "title": "Lantern background ambience", "who": "Elan" },
+          { "key": "LEM-250", "title": "Lantern interaction SFX", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": "LJ-47", "title": "iOS development tools setup", "who": "Lazar" }
+        ],
+        "art": [],
+        "sound": [],
+        "vfx": []
+      }
+    },
+    {
+      "id": 4,
+      "label": "Sprint 4",
+      "dates": "Mar 16–27",
+      "version_lemo": "Lemo v0.1.4",
+      "version_lj": "LJ core infra",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-191", "title": "Lantern experience complete", "who": "Lazar" },
+          { "key": "LEM-257", "title": "Two choice panel concept", "who": "Lazar" },
+          { "key": "LEM-295", "title": "FMOD bank migration", "who": "Lazar" },
+          { "key": "LEM-296", "title": "MasterSoundDatabase rework", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": "LEM-246", "title": "Bibliotheca blockout final", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": "LEM-266", "title": "English voices for Basel", "who": "Elan" },
+          { "key": "LEM-293", "title": "Italian tutorial voiceover rework", "who": "Elan" },
+          { "key": "LEM-274", "title": "Bibliotheca voiceover", "who": "Elan" },
+          { "key": "LEM-275", "title": "Bibliotheca background ambience", "who": "Elan" },
+          { "key": "LEM-248", "title": "Lantern sound design", "who": "Elan" },
+          { "key": "LEM-232", "title": "Sound design packages", "who": "Elan" },
+          { "key": "LEM-270", "title": "Sound banks rules + conventions", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": "LJ-39", "title": "Gesture recognition", "who": "Chiara" },
+          { "key": "LJ-56", "title": "Head-gaze fallback input system", "who": "Chiara" },
+          { "key": "LJ-40", "title": "Teleport system", "who": "Chiara" },
+          { "key": "LJ-67", "title": "TeleportAnchor hover-triggered", "who": "Chiara" },
+          { "key": "LJ-70", "title": "AdaptiveGI introduced", "who": "Lazar" },
+          { "key": "LJ-71", "title": "Lemona 3D model integrated", "who": "Lazar" },
+          { "key": "LJ-72", "title": "Salsa lip sync", "who": "Lazar" },
+          { "key": "LJ-84", "title": "Firebase SDK update", "who": "Lazar" }
+        ],
+        "art": [],
+        "sound": [
+          { "key": "LJ-83", "title": "Lemo Park sound solution", "who": "Elan" }
+        ],
+        "vfx": []
+      }
+    },
+    {
+      "id": 5,
+      "label": "Sprint 5",
+      "dates": "Mar 30–Apr 3",
+      "version_lemo": "Lemo v0.2",
+      "version_lj": "LJ v0.0.2",
+      "lemo": {
+        "dev": [
+          { "key": null, "title": "Bug fixing + stability push → v0.2", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": null, "title": "Main menu blockout + modeling", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": null, "title": "Transition + UI SFX improvements", "who": "Elan" },
+          { "key": null, "title": "Audio asset list finalized", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": null, "title": "Portal + GameStateManager integration", "who": "Chiara" },
+          { "key": null, "title": "Portal emergence controller", "who": "Chiara" },
+          { "key": null, "title": "Tutorial sequencing + waving", "who": "Chiara" },
+          { "key": null, "title": "Animations ported from Lemo Adult", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": null, "title": "Finished stand mock-up for sales", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": null, "title": "All LJ character voices", "who": "Elan" },
+          { "key": null, "title": "Lemo Park ambience", "who": "Elan" }
+        ],
+        "vfx": []
+      }
+    },
+    {
+      "id": 6,
+      "label": "Sprint 6",
+      "dates": "Apr 11–26",
+      "version_lemo": "Lemo v0.2 QA",
+      "version_lj": "LJ Q2 foundation",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-311", "title": "Mama Lemo shader fix on intro", "who": "Lazar" },
+          { "key": "LEM-318", "title": "CRITICAL: Cosmo audio exit bug", "who": "Lazar" },
+          { "key": "LEM-328", "title": "Lantern/Bibliotheca audio mix", "who": "Lazar" },
+          { "key": "LEM-315", "title": "Main menu skybox passthrough bug", "who": "Lazar" },
+          { "key": "LEM-379", "title": "Exit button size + position", "who": "Lazar" },
+          { "key": "LEM-304", "title": "AR-VR transition", "who": "Lazar" },
+          { "key": "LEM-77",  "title": "XR Setup complete", "who": "Lazar" },
+          { "key": "LEM-383", "title": "Transition black screen rework", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": "LEM-290", "title": "Scene rendering for marketing", "who": "Elisa" },
+          { "key": "LEM-253", "title": "Main menu stations modeled", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": "LEM-305", "title": "Germanic voice for Lemona", "who": "Elan" },
+          { "key": "LEM-331", "title": "Audio QA: all experiences", "who": "Elan" },
+          { "key": "LEM-271", "title": "Voiceover → Timeline migration", "who": "Elan" },
+          { "key": "LEM-239", "title": "Cosmo sound redesign", "who": "Elan" },
+          { "key": "LEM-309", "title": "House Assembly IT voices", "who": "Elan" },
+          { "key": "LEM-346", "title": "House Assembly EN voices", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": "LJ-61",  "title": "Portal emergence + invitation sequence", "who": "Chiara" },
+          { "key": "LJ-32",  "title": "Lemona returning to portal animation", "who": "Chiara" },
+          { "key": "LJ-36",  "title": "Base park tutorial sequencing", "who": "Chiara" },
+          { "key": "LJ-88",  "title": "Waving function for all characters", "who": "Chiara" },
+          { "key": "LJ-93",  "title": "Auto head-gaze/hand tracking switch", "who": "Chiara" },
+          { "key": "LJ-57",  "title": "Voice keyword trigger input", "who": "Chiara" },
+          { "key": "LJ-110", "title": "Telly station concept impl.", "who": "Lazar" },
+          { "key": "LJ-112", "title": "Spaceboy station concept impl.", "who": "Lazar" },
+          { "key": "LJ-111", "title": "Firefly Guardians concept impl.", "who": "Lazar" },
+          { "key": "LJ-113", "title": "Hallway of Joy concept impl.", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": "LJ-119", "title": "Tents modeled", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": "LJ-80", "title": "Italian voiceovers integrated", "who": "Elan" },
+          { "key": "LJ-95", "title": "English voiceovers integrated", "who": "Elan" },
+          { "key": "LJ-74", "title": "Character voices via ElevenLabs", "who": "Elan" }
+        ],
+        "vfx": []
+      }
+    },
+    {
+      "id": 7,
+      "label": "Sprint 7",
+      "dates": "Apr 27–May 8",
+      "version_lemo": "Lemo v0.3",
+      "version_lj": "LJ mini-games",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-397", "title": "World map system", "who": "Lazar" },
+          { "key": "LEM-534", "title": "Path between points", "who": "Lazar" },
+          { "key": "LEM-536", "title": "Description panel on hover", "who": "Lazar" },
+          { "key": "LEM-347", "title": "Teleportation system", "who": "Chiara" }
+        ],
+        "art": [
+          { "key": "LEM-398", "title": "World map visuals", "who": "Elisa" },
+          { "key": "LEM-400", "title": "World map animations", "who": "Elisa" },
+          { "key": "LEM-465", "title": "Moving telescope prop", "who": "Elisa" },
+          { "key": null,      "title": "Hologram props — Immersion station", "who": "Elisa" },
+          { "key": null,      "title": "Mega scatter vegetation", "who": "Elisa" }
+        ],
+        "sound": [],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": null, "title": "Telly mini-game in progress", "who": "Chiara" },
+          { "key": null, "title": "Spaceboy mini-game in progress", "who": "Chiara" },
+          { "key": "LJ-157", "title": "Teleport interactions validated", "who": "Chiara" }
+        ],
+        "art": [
+          { "key": null, "title": "Base LEMO Park texturing", "who": "Elisa" }
+        ],
+        "sound": [],
+        "vfx": [
+          { "key": null,      "title": "SDF breathing towers design", "who": "Federico" },
+          { "key": "LEM-395", "title": "Hover selection mechanics", "who": "Chiara" }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "label": "Sprint 8",
+      "dates": "May 11–22",
+      "version_lemo": "Lemo v0.4",
+      "version_lj": "LJ v0.3",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-455", "title": "New tutorial system", "who": "Lazar" },
+          { "key": "LEM-422", "title": "Cosmo rework", "who": "Lazar" },
+          { "key": "LEM-421", "title": "Lantern rework", "who": "Lazar" },
+          { "key": "LEM-479", "title": "OpenXR + XR SDK 3.x migration", "who": "Lazar" },
+          { "key": "LEM-356", "title": "10 new 3D videos integrated", "who": "Lazar" },
+          { "key": "LEM-490", "title": "Test build Quest 3", "who": "Lazar" },
+          { "key": "LEM-472", "title": "Main menu anchor/UI system", "who": "Lazar" },
+          { "key": "LEM-447", "title": "Dynamic UI loading for videos", "who": "Federico" }
+        ],
+        "art": [],
+        "sound": [
+          { "key": "LEM-432", "title": "Spanish language full rework", "who": "Elan" },
+          { "key": "LEM-461", "title": "Starting point ambience", "who": "Elan" },
+          { "key": "LEM-480", "title": "Respirare station sound", "who": "Elan" },
+          { "key": "LEM-481", "title": "Immersione station sound", "who": "Elan" },
+          { "key": "LEM-483", "title": "Viaggio guidato sound", "who": "Elan" },
+          { "key": "LEM-464", "title": "New tutorial voices IT/EN/ES", "who": "Elan" },
+          { "key": "LEM-470", "title": "Tutorial voice sequence fix", "who": "Elan" }
+        ],
+        "vfx": [
+          { "key": "LEM-394", "title": "SDF shapes VFX — breathing station", "who": "Federico" },
+          { "key": "LEM-459", "title": "SDF performance testing", "who": "Lazar" }
+        ]
+      },
+      "lj": {
+        "dev": [
+          { "key": "LJ-133", "title": "Single-load scene architecture", "who": "Lazar" },
+          { "key": "LJ-137", "title": "Merge StationManager → GSM", "who": "Lazar" },
+          { "key": "LJ-139", "title": "Core_Scene + Persistent arch.", "who": "Lazar" },
+          { "key": "LJ-63",  "title": "Core app-to-app transitions", "who": "Lazar" },
+          { "key": "LJ-97",  "title": "Telly mini-game", "who": "Chiara" },
+          { "key": "LJ-98",  "title": "Spaceboy mini-game", "who": "Chiara" },
+          { "key": "LJ-99",  "title": "General polishing", "who": "Chiara" },
+          { "key": "LJ-156", "title": "Home scene + Elisa 3D assets", "who": "Chiara" }
+        ],
+        "art": [],
+        "sound": [
+          { "key": "LJ-149", "title": "Spanish voiceovers all characters", "who": "Elan" },
+          { "key": "LJ-167", "title": "Music search + integration", "who": "Elan" },
+          { "key": "LJ-78",  "title": "Ambience FMOD integration", "who": "Elan" },
+          { "key": "LJ-104", "title": "Ferris wheel sound", "who": "Elan" },
+          { "key": "LJ-82",  "title": "Portal sound", "who": "Elan" }
+        ],
+        "vfx": []
+      }
+    },
+    {
+      "id": 9,
+      "label": "Sprint 9",
+      "dates": "May 25–Jun 5",
+      "version_lemo": "Lemo v0.4.2",
+      "version_lj": "LJ v1 push",
+      "lemo": {
+        "dev": [
+          { "key": "LEM-203", "title": "SDK migration Oculus → OpenXR", "who": "Lazar" },
+          { "key": "LEM-243", "title": "Two choice panel full rework", "who": "Lazar" },
+          { "key": "LEM-303", "title": "Opening breathing → EMDR", "who": "Lazar" },
+          { "key": "LEM-358", "title": "Main menu teleportation", "who": "Chiara" },
+          { "key": "LEM-504", "title": "Opening sphere hand collision fix", "who": "Lazar" },
+          { "key": "LEM-506", "title": "Teleport look-direction param", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": "LEM-444", "title": "TicketMachine lever pivot fix", "who": "Elisa" }
+        ],
+        "sound": [
+          { "key": "LEM-460", "title": "Main menu ambience + music", "who": "Elan" },
+          { "key": "LEM-409", "title": "Teleportation sounds", "who": "Elan" },
+          { "key": "LEM-333", "title": "David Assembly music", "who": "Elan" },
+          { "key": "LEM-343", "title": "Laocoon Assembly music", "who": "Elan" },
+          { "key": "LEM-344", "title": "House Assembly music", "who": "Elan" },
+          { "key": "LEM-494", "title": "Spanish transcription cleanup", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": "LJ-146", "title": "Station enter/exit flows", "who": "Lazar" },
+          { "key": "LJ-157", "title": "Teleport interactions validated", "who": "Chiara" },
+          { "key": "LJ-168", "title": "3D model integration", "who": "Chiara" },
+          { "key": "LJ-171", "title": "General test + improvements", "who": "Chiara" },
+          { "key": "LJ-172", "title": "Voices integrated", "who": "Chiara" },
+          { "key": "LJ-162", "title": "Station outlines", "who": "Chiara" },
+          { "key": "LJ-164", "title": "Teleport improvements", "who": "Chiara" }
+        ],
+        "art": [
+          { "key": "LJ-87",  "title": "Tents + stands exteriors", "who": "Elisa" },
+          { "key": "LJ-120", "title": "Mega scatter vegetation", "who": "Elisa" },
+          { "key": "LJ-101", "title": "Telly stands blockout", "who": "Elisa" },
+          { "key": "LJ-9",   "title": "Base blockout + modeling final", "who": "Elisa" },
+          { "key": "LJ-129", "title": "Claw visuals", "who": "Elisa" }
+        ],
+        "sound": [],
+        "vfx": []
+      }
+    },
+    {
+      "id": 10,
+      "label": "Sprint 10",
+      "dates": "Jun 8–19",
+      "version_lemo": "Lemo v0.5",
+      "version_lj": "LJ v1",
+      "lemo": {
+        "dev": [
+          { "key": null, "title": "Tutorial system on world map", "who": "Chiara" },
+          { "key": null, "title": "Post-tutorial map explanation", "who": "Chiara" },
+          { "key": null, "title": "World map breadcrumb tracking", "who": "Lazar" },
+          { "key": null, "title": "Map reset on return from experience", "who": "Lazar" },
+          { "key": null, "title": "Remove old tutorial + integrate breathing", "who": "Lazar" },
+          { "key": null, "title": "Menu integration fixes", "who": "Lazar" }
+        ],
+        "art": [
+          { "key": null, "title": "World map texturing", "who": "Elisa" },
+          { "key": null, "title": "World map roll-in animation", "who": "Elisa" },
+          { "key": null, "title": "World map roll-out animation", "who": "Elisa" },
+          { "key": null, "title": "Lemona eyelash rig fix", "who": "Federico" }
+        ],
+        "sound": [
+          { "key": null, "title": "World map interaction sounds", "who": "Elan" },
+          { "key": null, "title": "Map roll-down animation sound", "who": "Elan" },
+          { "key": null, "title": "Experience unlock SFX", "who": "Elan" },
+          { "key": null, "title": "Bibliotheca sound design final", "who": "Elan" },
+          { "key": null, "title": "Tutorial new voice lines", "who": "Elan" }
+        ],
+        "vfx": []
+      },
+      "lj": {
+        "dev": [
+          { "key": null, "title": "Tutorial system on world map", "who": "Chiara" },
+          { "key": null, "title": "Post-tutorial map explanation", "who": "Chiara" }
+        ],
+        "art": [],
+        "sound": [],
+        "vfx": []
+      }
+    }
+  ]
+}
