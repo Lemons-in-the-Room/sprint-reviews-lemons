@@ -89,7 +89,7 @@
   .bubble-stage {
     position: relative; width: 100%;
     display: flex; align-items: center; justify-content: center;
-    height: 96px;
+    height: 172px;
   }
   .bubble-stage svg { overflow: visible; }
 
@@ -185,7 +185,7 @@ const APP_META = {
   },
 };
 
-const MIN_R = 10, MAX_R = 36, STAGE_H = 96;
+const MIN_R = 5, MAX_R = 20, STAGE_H = 172;
 let globalMax = 1;
 
 function scaleR(v) {
@@ -198,26 +198,16 @@ function layoutBubbles(counts) {
     .filter(d => counts[d.id] > 0)
     .map(d => ({ ...d, v: counts[d.id], r: scaleR(counts[d.id]) }));
   if (!active.length) return [];
-  const cx = 50, cy = STAGE_H / 2;
-  if (active.length === 1) return [{ ...active[0], x: cx, y: cy }];
-  if (active.length === 2) {
-    const g = 5, tot = active[0].r + active[1].r + g;
-    return [
-      { ...active[0], x: cx - tot/2 + active[0].r, y: cy },
-      { ...active[1], x: cx + tot/2 - active[1].r, y: cy },
-    ];
-  }
-  if (active.length === 3) return [
-    { ...active[0], x: cx - active[0].r - 3, y: cy - active[0].r * 0.4 },
-    { ...active[1], x: cx + active[1].r + 3, y: cy - active[1].r * 0.4 },
-    { ...active[2], x: cx, y: cy + active[2].r * 0.7 },
-  ];
-  return [
-    { ...active[0], x: cx - active[0].r - 2, y: cy - active[0].r * 0.5 },
-    { ...active[1], x: cx + active[1].r + 2, y: cy - active[1].r * 0.5 },
-    { ...active[2], x: cx - active[2].r,     y: cy + active[2].r * 0.6 },
-    { ...active[3], x: cx + active[3].r,     y: cy + active[3].r * 0.6 },
-  ];
+
+  const cx = 50, gap = 6;
+  const totalH = active.reduce((sum, b) => sum + b.r * 2, 0) + gap * (active.length - 1);
+  let y = (STAGE_H - totalH) / 2 + active[0].r;
+
+  return active.map(b => {
+    const result = { ...b, x: cx, y };
+    y += b.r * 2 + gap;
+    return result;
+  });
 }
 
 function svgEl(tag, attrs) {
@@ -418,7 +408,7 @@ function buildAppSection(appKey, sprints) {
           'text-anchor': 'middle', 'dominant-baseline': 'central',
           'font-size': '9', 'font-weight': '700', fill: b.color,
         });
-        t2.textContent = b.display != null ? b.display : Math.round(b.v);
+        t2.textContent = Math.round(b.v);
         g.appendChild(t2);
       }
 
