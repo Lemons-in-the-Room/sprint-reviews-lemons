@@ -377,16 +377,22 @@ function buildAppSection(appKey, sprints) {
     });
     svg.style.overflow = 'visible';
 
+    const displayCounts = {};
     let totalListedForApp = 0;
-    DEPTS.forEach(d => { totalListedForApp += (appData[d.id] || []).length; });
+    DEPTS.forEach(d => {
+      const n = (appData[d.id] || []).length;
+      displayCounts[d.id] = n;
+      totalListedForApp += n;
+    });
     const counts = {};
     DEPTS.forEach(d => {
-      const listed = (appData[d.id] || []).length;
+      const listed = displayCounts[d.id];
       counts[d.id] = totalListedForApp > 0
         ? (listed / totalListedForApp) * actualCount
         : (listed > 0 ? actualCount : 0);
     });
     const bubbles = layoutBubbles(counts);
+    bubbles.forEach(b => { b.display = displayCounts[b.id]; });
 
     bubbles.forEach(b => {
       const g = svgEl('g', {});
@@ -412,7 +418,7 @@ function buildAppSection(appKey, sprints) {
           'text-anchor': 'middle', 'dominant-baseline': 'central',
           'font-size': '9', 'font-weight': '700', fill: b.color,
         });
-        t2.textContent = b.v;
+        t2.textContent = b.display != null ? b.display : Math.round(b.v);
         g.appendChild(t2);
       }
 
