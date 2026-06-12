@@ -189,58 +189,91 @@ const sprints = [
   {type:'pre',label:'Foundation',date:'Before Feb 2026', jira_total: 50,
    versions:[{v:'v0.0.3',url:null},{v:'v0.0.4',url:null},{v:'v0.0.7',url:null},{v:'v0.0.9',url:null}],
    note:'Solo development — Cosmos, statue assemblies, breathing protocols, voice control, 180° videos',
-   features:['Cosmos & David/Laocoon assembly meditations','Physiological Sigh, Box, EMDR, Triangle breathing','Voice-controlled, ~10k loc architecture overhaul'],
-   current:false},
+   features:[
+     {icon:'ti-building-monument', text:'Cosmos & David/Laocoon assembly meditations'},
+     {icon:'ti-wave-sine',         text:'Physiological Sigh, Box, EMDR, Triangle breathing'},
+     {icon:'ti-microphone',        text:'Voice-controlled, ~10k loc architecture overhaul'},
+   ], current:false},
   {type:'v01',label:'Sprint 1',date:'Feb 2–13, 2026', jira_total: 34,
    versions:[{v:'v0.1.1',url:'https://app.notion.com/p/304e69fbb9e68016a7a0e2527256f787'}],
    note:'FMOD audio engine, Lemona animated, portal shader rework — first multi-contributor sprint',
-   features:['FMOD audio engine replaces Unity audio (5,148 files changed)','Lemona animated character (22+ animations, eye tracking)','Emotional state pre/post session tracking'],
-   current:false},
+   features:[
+     {icon:'ti-music',             text:'FMOD audio engine replaces Unity audio (5,148 files changed)'},
+     {icon:'ti-user',              text:'Lemona animated character (22+ animations, eye tracking)'},
+     {icon:'ti-heart-rate-monitor',text:'Emotional state pre/post session tracking'},
+   ], current:false},
   {type:'v01',label:'Sprint 2',date:'Feb 16–27, 2026', jira_total: 17,
    versions:[{v:'v0.1.2',url:null}],
    note:'Breathing VFX Graph prototype, Bibliotheca 4K texturing, Lemo Junior iOS setup',
-   features:['Breathing VFX Graph prototype (4 patterns)','Bibliotheca 4K texturing + main menu blockout','Lemo Junior iOS dev tools setup'],
-   current:false},
+   features:[
+     {icon:'ti-wave-sine',       text:'Breathing VFX Graph prototype (4 patterns)'},
+     {icon:'ti-palette',         text:'Bibliotheca 4K texturing + main menu blockout'},
+     {icon:'ti-device-mobile',   text:'Lemo Junior iOS dev tools setup'},
+   ], current:false},
   {type:'v01',label:'Sprint 3',date:'Mar 2–13, 2026', jira_total: 31,
    versions:[{v:'v0.1.3',url:null}],
    note:'All 4 breathing patterns via VFX Graph, Lantern audio + ambience, Bibliotheca assets complete',
-   features:['4 breathing patterns validated via VFX Graph','Lantern audio SFX + ambience integrated','Bibliotheca props, texturing, skybox complete'],
-   current:false},
+   features:[
+     {icon:'ti-wave-sine',  text:'4 breathing patterns validated via VFX Graph'},
+     {icon:'ti-volume',     text:'Lantern audio SFX + ambience integrated'},
+     {icon:'ti-building',   text:'Bibliotheca props, texturing, skybox complete'},
+   ], current:false},
   {type:'v01',label:'Sprint 4',date:'Mar 16–27, 2026', jira_total: 31,
    versions:[{v:'v0.1.6',url:'https://app.notion.com/p/329e69fbb9e6817a9edfd38a7d78eed4'}],
    note:'3 new scenes, English localization, 600+ sounds reworked — biggest release to date at the time',
-   features:['FMOD full rearchitecture + EN/IT voiceover banks','Lantern + Bibliotheca complete with bilingual audio','Lemo Junior: teleport, gestures, Lemona 3D model, SALSA lip sync'],
-   current:false},
+   features:[
+     {icon:'ti-music',    text:'FMOD full rearchitecture + EN/IT voiceover banks'},
+     {icon:'ti-language', text:'Lantern + Bibliotheca complete with bilingual audio'},
+     {icon:'ti-user',     text:'Lemo Junior: teleport, gestures, Lemona 3D model, SALSA lip sync'},
+   ], current:false},
   {type:'review',label:'Sprint 5 — Q1 Review',date:'Mar 30–Apr 10, 2026', jira_total: 37,
    versions:[],
    note:'Company-wide Q1 review — no product release this sprint',
-   features:['Hospital pipeline updates (5 sites)','Business development: FungAI, Law 14 grant, investors','Video production & social media strategy'],
-   current:false},
+   features:[
+     {icon:'ti-stethoscope', text:'Hospital pipeline updates (5 sites)'},
+     {icon:'ti-chart-bar',   text:'Business development: FungAI, Law 14 grant, investors'},
+     {icon:'ti-video',       text:'Video production & social media strategy'},
+   ], current:false},
   {type:'v02',label:'Sprint 6',date:'Apr 13–24, 2026', jira_total: 56,
    versions:[{v:'v0.2.6',url:'https://app.notion.com/p/348e69fbb9e6801fb7bffaece13d2c89'}],
    note:'Main Menu, House Assembly, Lantern finalized, sound overhaul — ready for clinical hospital deployment',
-   features:['Lemo v0.2 polished for medical device submission','House Assembly, Solo Breathing & Lantern complete','Lemo Junior: character voices (ElevenLabs), portal emergence'],
-   current:false},
+   features:[
+     {icon:'ti-stethoscope', text:'Lemo v0.2 polished for medical device submission'},
+     {icon:'ti-building',    text:'House Assembly, Solo Breathing & Lantern complete'},
+     {icon:'ti-microphone',  text:'Lemo Junior: character voices (ElevenLabs), portal emergence'},
+   ], current:false},
   {type:'v03',label:'Sprint 7',date:'Apr 27–May 8, 2026', jira_total: 28,
    versions:[{v:'v0.3',url:null}],
    note:'World Map with cloth roll-down, SDF particle breathing stations, 3D Immersion + Video stations',
-   features:['World Map with cloth roll-down animation','SDF particle breathing station towers','3D Immersion Station + holographic props'],
-   current:false},
+   features:[
+     {icon:'ti-map-2',          text:'World Map with cloth roll-down animation'},
+     {icon:'ti-sparkles',       text:'SDF particle breathing station towers'},
+     {icon:'ti-3d-cube-sphere', text:'3D Immersion Station + holographic props'},
+   ], current:false},
   {type:'v03',label:'Sprint 8',date:'May 11–22, 2026', jira_total: 44,
    versions:[{v:'v0.3+',url:null}],
    note:'New tutorial system, 10 new 3D videos, Spanish localization, OpenXR migration begins',
-   features:['New tutorial system on World Map','Spanish localization + 10 new 3D videos','OpenXR / XR SDK 3.x migration start'],
-   current:false},
+   features:[
+     {icon:'ti-school',          text:'New tutorial system on World Map'},
+     {icon:'ti-language',        text:'Spanish localization + 10 new 3D videos'},
+     {icon:'ti-refresh',         text:'OpenXR / XR SDK 3.x migration start'},
+   ], current:false},
   {type:'v04',label:'Sprint 9',date:'May 25–Jun 5, 2026', jira_total: 125,
    versions:[{v:'v0.4.2',url:'https://app.notion.com/p/35fe69fbb9e680e59b3ceacb2e87d768'}],
    note:'Full Oculus SDK → OpenXR migration, Spanish trilingual, Pico 4 support — biggest architectural leap to date',
-   features:['Oculus SDK → OpenXR complete (Meta Quest 2/3/Pro + Pico 4)','Spanish trilingual, Ring Puzzle, SDF breathing station','Lemo Junior: all station flows + full environment integrated'],
-   current:false},
+   features:[
+     {icon:'ti-headset',  text:'Oculus SDK → OpenXR complete (Meta Quest 2/3/Pro + Pico 4)'},
+     {icon:'ti-language', text:'Spanish trilingual, Ring Puzzle, SDF breathing station'},
+     {icon:'ti-building', text:'Lemo Junior: all station flows + full environment integrated'},
+   ], current:false},
   {type:'v05',label:'Sprint 10',date:'Jun 8–19, 2026', jira_total: 19,
    versions:[{v:'v0.5',url:null}],
    note:'World Map finalization, new tutorial on world map, Bibliotheca sound design, Lemona eyelash rig fix',
-   features:['World Map texturing + roll animation + breadcrumb tracking','Tutorial system on World Map','Bibliotheca sound design completion'],
-   current:true},
+   features:[
+     {icon:'ti-map-2',  text:'World Map texturing + roll animation + breadcrumb tracking'},
+     {icon:'ti-school', text:'Tutorial system on World Map'},
+     {icon:'ti-music',  text:'Bibliotheca sound design completion'},
+   ], current:true},
 ];
 
 const tl = document.getElementById('timeline');
@@ -262,7 +295,9 @@ sprints.forEach((s, i) => {
   const finalBadges = badgesHtml + ' ' + jiraBadge;
 
   const featuresHtml = s.features.map(f =>
-    `<li>${f}</li>`
+    typeof f === 'string'
+      ? `<li>${f}</li>`
+      : `<li style="display:flex;align-items:baseline;gap:6px;"><i class="ti ${f.icon}" style="font-size:12px;color:${c.dot};opacity:0.85;flex-shrink:0;position:relative;top:1px;"></i><span>${f.text}</span></li>`
   ).join('');
 
   const activeTag = s.current
