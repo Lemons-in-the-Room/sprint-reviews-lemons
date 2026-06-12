@@ -6,6 +6,8 @@
       "dates": "Feb 2–13",
       "version_lemo": "Lemo v0.1.1",
       "version_lj": "LJ base",
+      "jira_done_lemo": 26,
+      "jira_done_lj": 8,
       "lemo": {
         "dev": [
           { "key": null, "title": "Portal shader integration", "who": "Manuel" },
@@ -45,6 +47,8 @@
       "dates": "Feb 16–27",
       "version_lemo": "Lemo v0.1.2",
       "version_lj": "LJ arch",
+      "jira_done_lemo": 13,
+      "jira_done_lj": 4,
       "lemo": {
         "dev": [
           { "key": null, "title": "VFX Graph breathing visualization", "who": "Manuel" },
@@ -78,6 +82,8 @@
       "dates": "Mar 2–13",
       "version_lemo": "Lemo v0.1.3",
       "version_lj": "LJ tools",
+      "jira_done_lemo": 29,
+      "jira_done_lj": 2,
       "lemo": {
         "dev": [
           { "key": "LEM-207", "title": "Breathing patterns VFX Graph", "who": "Lazar" },
@@ -115,6 +121,8 @@
       "dates": "Mar 16–27",
       "version_lemo": "Lemo v0.1.4",
       "version_lj": "LJ core infra",
+      "jira_done_lemo": 17,
+      "jira_done_lj": 14,
       "lemo": {
         "dev": [
           { "key": "LEM-191", "title": "Lantern experience complete", "who": "Lazar" },
@@ -160,6 +168,8 @@
       "dates": "Mar 30–Apr 3",
       "version_lemo": "Lemo v0.2",
       "version_lj": "LJ v0.0.2",
+      "jira_done_lemo": 31,
+      "jira_done_lj": 6,
       "lemo": {
         "dev": [
           { "key": null, "title": "Bug fixing + stability push → v0.2", "who": "Lazar" }
@@ -196,6 +206,8 @@
       "dates": "Apr 11–26",
       "version_lemo": "Lemo v0.2 QA",
       "version_lj": "LJ Q2 foundation",
+      "jira_done_lemo": 33,
+      "jira_done_lj": 23,
       "lemo": {
         "dev": [
           { "key": "LEM-311", "title": "Mama Lemo shader fix on intro", "who": "Lazar" },
@@ -251,6 +263,8 @@
       "dates": "Apr 27–May 8",
       "version_lemo": "Lemo v0.3",
       "version_lj": "LJ mini-games",
+      "jira_done_lemo": 9,
+      "jira_done_lj": 19,
       "lemo": {
         "dev": [
           { "key": "LEM-397", "title": "World map system", "who": "Lazar" },
@@ -290,6 +304,8 @@
       "dates": "May 11–22",
       "version_lemo": "Lemo v0.4",
       "version_lj": "LJ v0.3",
+      "jira_done_lemo": 32,
+      "jira_done_lj": 12,
       "lemo": {
         "dev": [
           { "key": "LEM-455", "title": "New tutorial system", "who": "Lazar" },
@@ -344,6 +360,8 @@
       "dates": "May 25–Jun 5",
       "version_lemo": "Lemo v0.4.2",
       "version_lj": "LJ v1 push",
+      "jira_done_lemo": 59,
+      "jira_done_lj": 66,
       "lemo": {
         "dev": [
           { "key": "LEM-203", "title": "SDK migration Oculus → OpenXR", "who": "Lazar" },
@@ -393,6 +411,8 @@
       "dates": "Jun 8–19",
       "version_lemo": "Lemo v0.5",
       "version_lj": "LJ v1",
+      "jira_done_lemo": 18,
+      "jira_done_lj": 1,
       "lemo": {
         "dev": [
           { "key": null, "title": "Tutorial system on world map", "who": "Chiara" },

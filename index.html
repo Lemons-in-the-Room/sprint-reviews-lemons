@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint Bubbles — Lemons In The Room</title>
+<title>Sprint Bubbles — BiteXR</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -139,6 +139,12 @@
 </head>
 <body>
 
+<nav style="display:flex;align-items:center;gap:4px;margin-bottom:20px;padding-bottom:12px;border-bottom:0.5px solid var(--border);">
+  <a href="index.html" style="font-size:11px;color:var(--text);font-weight:500;text-decoration:none;padding:3px 8px;border-radius:6px;background:var(--bg2);">Sprint bubbles</a>
+  <span style="font-size:11px;color:var(--border2)">/</span>
+  <a href="roadmap.html" style="font-size:11px;color:var(--text3);text-decoration:none;padding:3px 8px;border-radius:6px;" onmouseover="this.style.background='var(--bg2)';this.style.color='var(--text2)'" onmouseout="this.style.background='';this.style.color='var(--text3)'">Roadmap</a>
+</nav>
+
 <div id="loading">Loading sprint data...</div>
 <div id="error"></div>
 <div id="root" style="display:none"></div>
@@ -244,7 +250,7 @@ function buildPanel(sprint, appKey, deptId, panelEl) {
   count.className = 'panel-count';
   count.style.background = dept.bg;
   count.style.color = dept.text;
-  count.textContent = `${tasks.length} task${tasks.length !== 1 ? 's' : ''}`;
+  count.textContent = tasks.length ? `${tasks.length} highlight${tasks.length !== 1 ? 's' : ''}` : 'none listed';
 
   hdr.appendChild(dot);
   hdr.appendChild(name);
@@ -287,6 +293,18 @@ function buildPanel(sprint, appKey, deptId, panelEl) {
     list.appendChild(row);
   });
   panelEl.appendChild(list);
+
+  const sprintActual = appKey === 'lemo' ? (sprint.jira_done_lemo || 0) : (sprint.jira_done_lj || 0);
+  const allListed = DEPTS.reduce((sum, d) => sum + (sprint[appKey][d.id] || []).length, 0);
+  const rest = Math.max(0, sprintActual - allListed);
+  if (sprintActual > 0) {
+    const footer = document.createElement('div');
+    footer.style.cssText = 'font-size:10px;color:var(--text3);margin-top:8px;padding-top:6px;border-top:0.5px solid var(--border);';
+    footer.textContent = rest > 0
+      ? `+ ${rest} more tickets done this sprint · ${sprintActual} total`
+      : `${sprintActual} tickets done this sprint`;
+    panelEl.appendChild(footer);
+  }
 }
 
 function buildAppSection(appKey, sprints) {
@@ -339,7 +357,14 @@ function buildAppSection(appKey, sprints) {
 
     const lbl = document.createElement('div');
     lbl.className = 'sprint-label';
-    lbl.textContent = sprint.label;
+    lbl.style.marginBottom = '2px';
+
+    const appData = sprint[appKey];
+    let mappedCount = 0;
+    DEPTS.forEach(d => { mappedCount += (appData[d.id] || []).length; });
+    const actualCount = appKey === 'lemo' ? (sprint.jira_done_lemo || 0) : (sprint.jira_done_lj || 0);
+
+    lbl.innerHTML = `<strong>${sprint.label}</strong><br><span style="font-size:8px;color:var(--text3);font-weight:600;white-space:nowrap;">${mappedCount} / ${actualCount || mappedCount} Done</span>`;
     col.appendChild(lbl);
 
     const stage = document.createElement('div');
@@ -352,9 +377,15 @@ function buildAppSection(appKey, sprints) {
     });
     svg.style.overflow = 'visible';
 
-    const appData = sprint[appKey];
+    let totalListedForApp = 0;
+    DEPTS.forEach(d => { totalListedForApp += (appData[d.id] || []).length; });
     const counts = {};
-    DEPTS.forEach(d => { counts[d.id] = (appData[d.id] || []).length; });
+    DEPTS.forEach(d => {
+      const listed = (appData[d.id] || []).length;
+      counts[d.id] = totalListedForApp > 0
+        ? (listed / totalListedForApp) * actualCount
+        : (listed > 0 ? actualCount : 0);
+    });
     const bubbles = layoutBubbles(counts);
 
     bubbles.forEach(b => {
@@ -427,7 +458,7 @@ function buildLegend() {
   });
   const note = document.createElement('div');
   note.className = 'leg-note';
-  note.textContent = 'bubble size = ticket count · hover to see tasks';
+  note.textContent = 'bubble size = Jira total · hover to see highlights';
   legend.appendChild(note);
   return legend;
 }
@@ -439,11 +470,10 @@ async function init() {
     const data = await res.json();
     const sprints = data.sprints;
 
-    globalMax = Math.max(1, ...sprints.flatMap(s =>
-      ['lemo','lj'].flatMap(app =>
-        DEPTS.map(d => (s[app][d.id] || []).length)
-      )
-    ));
+    globalMax = Math.max(1, ...sprints.flatMap(s => [
+      s.jira_done_lemo || 0,
+      s.jira_done_lj   || 0,
+    ]));
 
     const root = document.getElementById('root');
     root.innerHTML = '';
@@ -453,7 +483,7 @@ async function init() {
     const latestSprint = sprints[sprints.length - 1];
     pageHdr.innerHTML = `
       <span class="page-title">Sprint bubbles</span>
-      <span class="page-sub">Lemons In The Room · ${sprints.length} sprints</span>
+      <span class="page-sub">BiteXR · ${sprints.length} sprints</span>
       <span class="updated">Last sprint: ${latestSprint.label} · ${latestSprint.dates}</span>
     `;
     root.appendChild(pageHdr);
