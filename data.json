@@ -6,6 +6,7 @@
       "dates": "Feb 2–13",
       "version_lemo": "Lemo v0.1.1",
       "version_lj": "LJ base",
+      "highlights": ["FMOD audio engine", "Lemona: 22+ animations"],
       "jira_done_lemo": 26,
       "jira_done_lj": 8,
       "lemo": {
@@ -47,6 +48,7 @@
       "dates": "Feb 16–27",
       "version_lemo": "Lemo v0.1.2",
       "version_lj": "LJ arch",
+      "highlights": ["Breathing VFX Graph (4 types)", "Bibliotheca 4K texturing"],
       "jira_done_lemo": 13,
       "jira_done_lj": 4,
       "lemo": {
@@ -82,6 +84,7 @@
       "dates": "Mar 2–13",
       "version_lemo": "Lemo v0.1.3",
       "version_lj": "LJ tools",
+      "highlights": ["Lantern audio SFX + ambience", "Bibliotheca assets complete"],
       "jira_done_lemo": 29,
       "jira_done_lj": 2,
       "lemo": {
@@ -121,6 +124,7 @@
       "dates": "Mar 16–27",
       "version_lemo": "Lemo v0.1.4",
       "version_lj": "LJ core infra",
+      "highlights": ["EN/IT voiceover rearchitecture", "LJ: teleport + Lemona 3D model"],
       "jira_done_lemo": 17,
       "jira_done_lj": 14,
       "lemo": {
@@ -168,6 +172,7 @@
       "dates": "Mar 30–Apr 3",
       "version_lemo": "Lemo v0.2",
       "version_lj": "LJ v0.0.2",
+      "highlights": ["Hospital pipeline (5 sites)", "Q1 company review"],
       "jira_done_lemo": 31,
       "jira_done_lj": 6,
       "lemo": {
@@ -206,6 +211,7 @@
       "dates": "Apr 11–26",
       "version_lemo": "Lemo v0.2 QA",
       "version_lj": "LJ Q2 foundation",
+      "highlights": ["Lemo v0.2 medical-ready", "LJ: ElevenLabs character voices"],
       "jira_done_lemo": 33,
       "jira_done_lj": 23,
       "lemo": {
@@ -263,6 +269,7 @@
       "dates": "Apr 27–May 8",
       "version_lemo": "Lemo v0.3",
       "version_lj": "LJ mini-games",
+      "highlights": ["World Map + cloth animation", "SDF particle breathing towers"],
       "jira_done_lemo": 9,
       "jira_done_lj": 19,
       "lemo": {
@@ -304,6 +311,7 @@
       "dates": "May 11–22",
       "version_lemo": "Lemo v0.4",
       "version_lj": "LJ v0.3",
+      "highlights": ["New World Map tutorial system", "Spanish + 10 new 3D videos"],
       "jira_done_lemo": 32,
       "jira_done_lj": 12,
       "lemo": {
@@ -360,6 +368,7 @@
       "dates": "May 25–Jun 5",
       "version_lemo": "Lemo v0.4.2",
       "version_lj": "LJ v1 push",
+      "highlights": ["OpenXR: Quest 2/3/Pro + Pico 4", "LJ v1 full environment"],
       "jira_done_lemo": 59,
       "jira_done_lj": 66,
       "lemo": {
@@ -411,6 +420,7 @@
       "dates": "Jun 8–19",
       "version_lemo": "Lemo v0.5",
       "version_lj": "LJ v1",
+      "highlights": ["Dwell-to-select + ring shader", "Space Boy character modeled"],
       "jira_done_lemo": 44,
       "jira_done_lj": 6,
       "lemo": {
