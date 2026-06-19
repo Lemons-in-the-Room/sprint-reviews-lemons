@@ -411,39 +411,48 @@
       "dates": "Jun 8–19",
       "version_lemo": "Lemo v0.5",
       "version_lj": "LJ v1",
-      "jira_done_lemo": 18,
-      "jira_done_lj": 1,
+      "jira_done_lemo": 44,
+      "jira_done_lj": 6,
       "lemo": {
         "dev": [
-          { "key": null, "title": "Tutorial system on world map", "who": "Chiara" },
-          { "key": null, "title": "Post-tutorial map explanation", "who": "Chiara" },
-          { "key": null, "title": "World map breadcrumb tracking", "who": "Lazar" },
-          { "key": null, "title": "Map reset on return from experience", "who": "Lazar" },
-          { "key": null, "title": "Remove old tutorial + integrate breathing", "who": "Lazar" },
-          { "key": null, "title": "Menu integration fixes", "who": "Lazar" }
+          { "key": "LEM-576", "title": "Dwell-to-select mechanic + ring shader", "who": "Lazar" },
+          { "key": "LEM-577", "title": "Dwell ring shader visual polish", "who": "Lazar" },
+          { "key": "LEM-572", "title": "Immersione interactable menu", "who": "Lazar" },
+          { "key": "LEM-571", "title": "Immersione station events", "who": "Lazar" },
+          { "key": "LEM-581", "title": "World-map tutorial polish", "who": "Lazar" },
+          { "key": "LEM-584", "title": "Main-menu tutorial polish", "who": "Lazar" },
+          { "key": "LEM-582", "title": "Camping/map orchestration fix", "who": "Lazar" },
+          { "key": "LEM-583", "title": "Hint race bug fix — MainMenuHintManager", "who": "Lazar" },
+          { "key": "LEM-451", "title": "OpenXR SDK migration (zero dependencies)", "who": "Lazar" },
+          { "key": "LEM-528", "title": "Camera discomfort fix in 180° video scene", "who": "Lazar" },
+          { "key": "LEM-586", "title": "Lemona assets + TeleportSystem prefabs integrated", "who": "Lazar" },
+          { "key": "LEM-579", "title": "New Lemona model issues resolved", "who": "Lazar" },
+          { "key": "LEM-580", "title": "Final scenes wired up", "who": "Lazar" },
+          { "key": "LEM-397", "title": "World Map guided journey", "who": "Chiara" },
+          { "key": "LEM-538", "title": "Tutorial sequence", "who": "Chiara" }
         ],
         "art": [
-          { "key": null, "title": "World map texturing", "who": "Elisa" },
-          { "key": null, "title": "World map roll-in animation", "who": "Elisa" },
-          { "key": null, "title": "World map roll-out animation", "who": "Elisa" },
-          { "key": null, "title": "Lemona eyelash rig fix", "who": "Federico" }
+          { "key": "LEM-560", "title": "World Map decals: brush strokes, camping, space, skip", "who": "Elisa" },
+          { "key": "LEM-561", "title": "Reclining table mesh rework", "who": "Elisa" }
         ],
         "sound": [
-          { "key": null, "title": "World map interaction sounds", "who": "Elan" },
-          { "key": null, "title": "Map roll-down animation sound", "who": "Elan" },
-          { "key": null, "title": "Experience unlock SFX", "who": "Elan" },
-          { "key": null, "title": "Bibliotheca sound design final", "who": "Elan" },
-          { "key": null, "title": "Tutorial new voice lines", "who": "Elan" }
+          { "key": "LEM-492", "title": "Voice transcriptions migrated to Notion", "who": "Elan" }
         ],
-        "vfx": []
+        "vfx": [
+          { "key": "LEM-565", "title": "Hand-drawn flipbooks: ship, lighthouse, hot air balloon", "who": "Federico" },
+          { "key": "LEM-549", "title": "Lemona eyelash rig — moves perfectly with eyelids", "who": "Federico" }
+        ]
       },
       "lj": {
         "dev": [
-          { "key": null, "title": "Tutorial system on world map", "who": "Chiara" },
-          { "key": null, "title": "Post-tutorial map explanation", "who": "Chiara" }
+          { "key": "LJ-197", "title": "Firefly Guardians gameplay overhaul", "who": "Lazar" }
         ],
-        "art": [],
-        "sound": [],
+        "art": [
+          { "key": "LJ-253", "title": "Space Boy: head, helmet, boots, hair, gloves, suit pants", "who": "Federico" }
+        ],
+        "sound": [
+          { "key": "LJ-208", "title": "Astrofriend SFX: pick-up, helmet, rocket sounds", "who": "Elan" }
+        ],
         "vfx": []
       }
     }
